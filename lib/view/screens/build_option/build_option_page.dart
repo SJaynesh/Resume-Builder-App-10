@@ -2,7 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:resume_builder_app/utills/routes/routes.dart';
 import 'package:resume_builder_app/view/screens/build_option/attributes/build_option_attributes.dart';
+
+import '../../../utills/attributes/app_attributes.dart';
 
 class BuildOptionPage extends StatefulWidget {
   const BuildOptionPage({super.key});
@@ -69,7 +72,11 @@ class _BuildOptionPageState extends State<BuildOptionPage> {
                             child: ListTile(
                               onTap: () {
                                 log("Tapped....");
-                                Navigator.of(context).pushNamed(e['page']);
+                                Navigator.of(context).pushNamed(e['page']).then(
+                                  (value) {
+                                    setState(() {});
+                                  },
+                                );
                               },
                               leading: CircleAvatar(
                                 radius: 40.w,
@@ -97,6 +104,22 @@ class _BuildOptionPageState extends State<BuildOptionPage> {
               ),
             ),
           ],
+        ),
+        floatingActionButton: Visibility(
+          visible: (name.isNotEmpty &&
+              email.isNotEmpty &&
+              address.isNotEmpty &&
+              image != null &&
+              (english != false || gujarati != false || hindi != false)),
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(
+                context,
+                Routes.pdfViewPage,
+              );
+            },
+            child: const Icon(Icons.picture_as_pdf_outlined),
+          ),
         ),
       ),
     );

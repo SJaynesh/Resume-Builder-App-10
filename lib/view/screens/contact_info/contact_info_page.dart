@@ -325,6 +325,9 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                                       validator: (val) => (val!.isEmpty)
                                           ? "Enter your address..."
                                           : null,
+                                      onSaved: (val) {
+                                        address = val!;
+                                      },
                                       // onChanged: (val) {
                                       //   log(val);
                                       //   address = val;
@@ -394,6 +397,9 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                                       validator: (val) => (val!.isEmpty)
                                           ? "Enter your phone number..."
                                           : null,
+                                      onSaved: (val) {
+                                        phone = int.parse(val!);
+                                      },
                                       maxLength: 10,
                                       textInputAction: TextInputAction.next,
                                       textAlign: TextAlign.start,
@@ -470,9 +476,13 @@ class _ContactInfoPageState extends State<ContactInfoPage> {
                                       //   password = val;
                                       //   setState(() {});
                                       // },
+
                                       validator: (val) => (val!.isEmpty)
                                           ? "Enter your password..."
                                           : null,
+                                      onSaved: (val) {
+                                        password = val!;
+                                      },
                                       style: const TextStyle(
                                         color: Colors.black,
                                       ),
