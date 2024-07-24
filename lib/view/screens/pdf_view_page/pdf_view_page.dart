@@ -39,7 +39,7 @@ class _PDFViewPageState extends State<PDFViewPage> {
           ),
         ),
       ),
-      body: PDFViewPage(),
+      body: PdfPreview(),
     );
   }
 }
